@@ -1,0 +1,15 @@
+.app-tabs {
+  .nav-link {
+    height: 100%;
+    border-radius: 0;
+    padding: 15px 20px;
+    pointer-events: all;
+    border-top: 3px solid transparent;
+
+    &.active {
+      color: $primary;
+      pointer-events: none;
+      border-top: 3px solid $primary;
+    }
+  }
+}

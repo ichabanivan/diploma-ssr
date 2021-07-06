@@ -1,0 +1,13 @@
+
+@import 'common/index.scss';
+@import 'helpers/index.scss';
+@import 'bootstrap/font-size';
+
+.body, #__next {
+  min-height: 100vh;
+}
+
+#__next {
+  display: flex;
+  flex-direction: column;
+}
