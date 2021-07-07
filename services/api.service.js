@@ -9,7 +9,6 @@ const instanceNEWS = axios.create({
   baseURL: 'https://newsapi.org/v2',
   withCredentials: false,
   headers: {
-    'Cache-Control': 'no-cache',
     'Content-Type': 'application/json',
   }
 });

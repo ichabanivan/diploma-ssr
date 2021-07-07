@@ -9,6 +9,7 @@ import rootReducer from './reducer';
 
 function bindMiddleware (middleware) {
   if (process.env.NODE_ENV !== 'production') {
+    // eslint-disable-next-line global-require
     const { composeWithDevTools } = require('redux-devtools-extension');
     return composeWithDevTools(applyMiddleware(...middleware));
   }
