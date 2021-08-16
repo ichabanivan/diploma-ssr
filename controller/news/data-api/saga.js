@@ -6,13 +6,13 @@ import { fork, cancel, put, takeEvery, call } from 'redux-saga/effects';
 import { TYPE } from './reducer';
 import instanceNEWS from '../../../services/api.service';
 
-function * initializeSaga ({ payload }) {
+function * initializeSaga () {
   yield put({ type: TYPE.META, disabled: true });
   try {
     const main = yield call(instanceNEWS, {
       url: '/everything',
       params: {
-        q: payload?.category ?? '',
+        q: 'Ukraine',
         sortBy: 'publishedAt',
         apiKey: 'f01c948178be420fb162319fa7f9ff37'
       }
@@ -20,7 +20,7 @@ function * initializeSaga ({ payload }) {
     const aside = yield call(instanceNEWS, {
       url: '/everything',
       params: {
-        q: 'all',
+        q: 'sport',
         pageSize: 10,
         sortBy: 'publishedAt',
         apiKey: 'f01c948178be420fb162319fa7f9ff37'
@@ -31,7 +31,6 @@ function * initializeSaga ({ payload }) {
       payload: {
         list: main?.articles,
         aside: aside?.articles,
-        category: payload.category,
       }
     });
   } catch(error) {

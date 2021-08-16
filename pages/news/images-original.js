@@ -2,7 +2,6 @@
 import moment from 'moment';
 import Head from 'next/head';
 import { END } from 'redux-saga';
-import { useRouter } from 'next/router';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Container, Row, Col, CardTitle, CardText, ListGroup, ListGroupItem } from 'reactstrap';
@@ -12,28 +11,26 @@ import { wrapper } from '../../store';
 import Page from '../../components/page';
 import Spinner from '../../components/spinner';
 import CardNews from '../../components/card-news';
-import { TYPE, selector } from '../../controller/news/list/reducer';
+import { TYPE, selector } from '../../controller/news/images-original/reducer';
 
 function News () {
-  const router = useRouter();
   const dispatch = useDispatch();
-  const { category } = router.query;
 
   useEffect(() => {
-    dispatch({ type: TYPE.INITIALIZE, payload: { category } });
-  }, [category, dispatch]);
+    dispatch({ type: TYPE.INITIALIZE });
+  }, [dispatch]);
 
   const { list, aside, disabled } = useSelector(selector);
 
   return <Page>
     <Head>
-      <title>{ category }</title>
+      <title>Images Original</title>
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     </Head>
     <Container>
       <Row className="mb-3 py-3">
         <Col xs="8" tag="h1" className="mb-0 text-capitalize">
-          { category }
+          Images Original
           { disabled ? <Spinner active /> : null }
         </Col>
         <Col xs="4" tag="p" className="mb-0 d-flex align-items-center justify-content-end">
@@ -62,9 +59,8 @@ function News () {
 }
 
 export const getServerSideProps = wrapper.getServerSideProps(store =>
-  async ({ params }) => {
-    const { category } = params;
-    store.dispatch({ type: TYPE.INITIALIZE, payload: { category } });
+  async () => {
+    store.dispatch({ type: TYPE.INITIALIZE });
     store.dispatch(END);
     await store.sagaTask.toPromise();
   }
