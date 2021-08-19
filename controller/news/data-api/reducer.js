@@ -23,7 +23,7 @@ const initial = {
 };
 
 // REDUCER
-export default function reducer(state = initial, action) {
+export default function reducer (state = initial, action) {
   const { type, payload } = action;
   switch (type) {
     default:

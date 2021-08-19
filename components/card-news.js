@@ -13,7 +13,7 @@ function CardNews ({ title, urlToImage, description, publishedAt, author }) {
   return <Card className="h-100">
     {
       urlToImage
-        ? <img src={urlToImage} alt={title} className="img-fluid"  />
+        ? <img src={urlToImage} alt={title} className="img-fluid" />
         : <Image src={urlToImage || placeholderIMG} alt={title} className="img-fluid" />
     }
     <CardBody>

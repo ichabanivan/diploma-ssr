@@ -1,5 +1,6 @@
 
 // outsource dependencies
+import React from 'react';
 import moment from 'moment';
 import { END } from 'redux-saga';
 import { Container, Row, Col } from 'reactstrap';
@@ -17,7 +18,7 @@ function News () {
           Welcome to NEWS.com
         </Col>
         <Col xs="4" tag="p" className="mb-0 d-flex align-items-center justify-content-end">
-          { moment().format('LLL')}
+          { moment().format('LLL') }
         </Col>
       </Row>
       <Row>
@@ -27,14 +28,14 @@ function News () {
         </Col>
       </Row>
     </Container>
-  </Page>
+  </Page>;
 }
 
 export const getServerSideProps = wrapper.getServerSideProps(store =>
   async () => {
     store.dispatch({ type: TYPE.INITIALIZE });
-    store.dispatch(END)
-    await store.sagaTask.toPromise()
+    store.dispatch(END);
+    await store.sagaTask.toPromise();
   }
 );
 

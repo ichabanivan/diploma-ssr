@@ -34,7 +34,7 @@ function * initializeSaga ({ payload }) {
         category: payload.category,
       }
     });
-  } catch(error) {
+  } catch (error) {
     console.error(error);
   }
   yield put({ type: TYPE.META, initialized: true, disabled: false });
@@ -53,7 +53,7 @@ function * activityTasks () {
  * on component unmount we fire action clear to bring reducer data to default and here
  * we renew all sagas to prevent executing actions which does not finish yet
  */
-export default function * activity() {
+export default function * activity () {
   let activity = yield fork(activityTasks);
   yield takeEvery(TYPE.CLEAR, function * () {
     yield cancel(activity);
