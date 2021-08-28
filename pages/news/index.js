@@ -8,7 +8,7 @@ import { Container, Row, Col } from 'reactstrap';
 // local dependencies
 import { wrapper } from '../../store';
 import Page from '../../components/page';
-import { TYPE } from '../../controller/news/list/reducer';
+import { TYPE } from '../../controller/news/news/reducer';
 
 function News () {
   return <Page>

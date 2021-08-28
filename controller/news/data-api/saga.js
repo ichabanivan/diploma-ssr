@@ -4,27 +4,33 @@ import { fork, cancel, put, takeEvery, call } from 'redux-saga/effects';
 
 // local dependencies
 import { TYPE } from './reducer';
-import instanceNEWS from '../../../services/api.service';
+import { instanceJSON } from '../../../services/api.service';
 
 function * initializeSaga () {
   yield put({ type: TYPE.META, disabled: true });
   try {
-    const main = yield call(instanceNEWS, {
-      url: '/everything',
-      params: {
-        q: 'Ukraine',
-        sortBy: 'publishedAt',
-        apiKey: 'f01c948178be420fb162319fa7f9ff37'
-      }
+    // const main = yield call(instanceNEWS, {
+    //   url: '/everything',
+    //   params: {
+    //     q: 'Ukraine',
+    //     sortBy: 'publishedAt',
+    //     apiKey: 'f01c948178be420fb162319fa7f9ff37'
+    //   }
+    // });
+    const main = yield call(instanceJSON, {
+      url: '/b/6129c23e076a223676b29deb',
     });
-    const aside = yield call(instanceNEWS, {
-      url: '/everything',
-      params: {
-        q: 'sport',
-        pageSize: 10,
-        sortBy: 'publishedAt',
-        apiKey: 'f01c948178be420fb162319fa7f9ff37'
-      }
+    // const aside = yield call(instanceNEWS, {
+    //   url: '/everything',
+    //   params: {
+    //     q: 'sport',
+    //     pageSize: 10,
+    //     sortBy: 'publishedAt',
+    //     apiKey: 'f01c948178be420fb162319fa7f9ff37'
+    //   }
+    // });
+    const aside = yield call(instanceJSON, {
+      url: '/b/6129c27fc5159b35ae055ed5',
     });
     yield put({
       type: TYPE.META,

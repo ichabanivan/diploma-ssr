@@ -3,7 +3,6 @@
 import { fork } from 'redux-saga/effects';
 
 // local dependencies
-import list from './list/saga';
 import news from './news/saga';
 import dataAPI from './data-api/saga';
 import dataLocal from './data-local/saga';
@@ -18,7 +17,6 @@ import imagesCompressed from './images-compressed/saga';
  * @public
  */
 export default function * () {
-  yield fork(list);
   yield fork(news);
   yield fork(dataAPI);
   yield fork(dataLocal);
