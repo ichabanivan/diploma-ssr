@@ -9,7 +9,7 @@ class _Document extends Document {
 
   render () {
     return (
-      <Html>
+      <Html lang="en">
         <Head>
           <meta name="description" content="World news website" />
           <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
