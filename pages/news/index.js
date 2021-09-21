@@ -2,8 +2,8 @@
 // outsource dependencies
 import React from 'react';
 import moment from 'moment';
+import Head from 'next/head';
 import { END } from 'redux-saga';
-import { Head } from 'next/document';
 import { Container, Row, Col } from 'reactstrap';
 
 // local dependencies
