@@ -3,6 +3,7 @@
 import React from 'react';
 import moment from 'moment';
 import { END } from 'redux-saga';
+import { Head } from 'next/document';
 import { Container, Row, Col } from 'reactstrap';
 
 // local dependencies
@@ -12,6 +13,10 @@ import { TYPE } from '../../controller/news/news/reducer';
 
 function News () {
   return <Page>
+    <Head>
+      <title>News Website</title>
+      <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+    </Head>
     <Container>
       <Row className="mb-3 py-3">
         <Col xs="8" tag="h1" className="mb-0">
